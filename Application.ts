@@ -2,8 +2,12 @@
  * @Author: yongyuan253015@gmail.com
  * @Date: 2022-01-09 23:34:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-01-10 00:13:25
+ * @LastEditTime: 2022-01-10 22:16:31
  * @Description: 文件描述
+ */
+
+/**
+ * protected 修饰符，让该类的子元素能够访问该类的成员变量。
  */
 export class Application {
     protected _start: boolean = false;
@@ -63,6 +67,51 @@ export class Application {
     }
 }
 
-/**
- * protected 修饰符，让该类的子元素能够访问该类的成员变量。
- */
+export class CanvasInoutEvent {
+    public altKey: boolean;
+    public crtlKey: boolean;
+    public shiftKey: boolean;
+
+    public type: EInputEventType;
+
+    public constructor(altKey: boolean = false, crtlKey: boolean = false, shiftKey: boolean = false, type: EInputEventType = EInputEventType.MOUSEEVENT) {
+        this.altKey = altKey;
+        this.crtlKey = crtlKey;
+        this.shiftKey = shiftKey;
+        this.type = type;
+    }
+}
+export class CanvasMouseEvent extends CanvasInoutEvent {
+    public button: number; //【0：表示左键，1：鼠标中键，2：鼠标右键】
+    public canvasPosition: vec2;
+    public localPosition: vec2;
+    public constructor(canvasPos: vec2, button: number, altKey: boolean = false, ctrlKey: boolean = false, shiftKey: boolean = false) {
+        super(altKey, ctrlKey, shiftKey);
+        this.canvasPosition = canvasPos;
+        this.button = button;
+        this.localPosition = vec2.create();
+    }
+}
+
+export class CanvasKeyBoardEvent extends CanvasInoutEvent {
+    public key: string;
+    public keyCode: number;
+    public repeat: boolean;
+    public constructor(key: string, keyCode: number, repeat: boolean, altKey: boolean = false, ctrlKey: boolean = false, shiftKey: boolean = false) {
+        super(altKey, ctrlKey, shiftKey, EInputEventType.KEYBOARDEVENT);
+        this.key = key;
+        this.keyCode = keyCode;
+        this.repeat = repeat;
+    }
+}
+export enum EInputEventType {
+    MOUSEEVENT,
+    MOUSEDOWN,
+    MOUSEUP,
+    MOUSEMOVE,
+    MOUSEDRAG,
+    KEYBOARDEVENT,
+    KEYUP,
+    KEYDOWN,
+    KEYPRESS,
+}
