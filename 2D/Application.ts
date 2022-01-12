@@ -2,14 +2,17 @@
  * @Author: yongyuan253015@gmail.com
  * @Date: 2022-01-09 23:34:12
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-01-10 22:16:31
+ * @LastEditTime: 2022-01-10 22:50:47
  * @Description: 文件描述
  */
+interface EventListenerObject {
+    handleEvent(event: Event): void;
+}
 
 /**
  * protected 修饰符，让该类的子元素能够访问该类的成员变量。
  */
-export class Application {
+export class Application implements EventListenerObject {
     protected _start: boolean = false;
     protected _requestId: number = -1;
     protected _lastTime !: number;
@@ -65,6 +68,12 @@ export class Application {
     public isRuning(): boolean {
         return this._start;
     }
+
+    public isSupportMouseMove: boolean;
+
+    protected _isMouseDown: boolean;
+    public handleEvent() { }
+
 }
 
 export class CanvasInoutEvent {
@@ -83,13 +92,13 @@ export class CanvasInoutEvent {
 }
 export class CanvasMouseEvent extends CanvasInoutEvent {
     public button: number; //【0：表示左键，1：鼠标中键，2：鼠标右键】
-    public canvasPosition: vec2;
-    public localPosition: vec2;
-    public constructor(canvasPos: vec2, button: number, altKey: boolean = false, ctrlKey: boolean = false, shiftKey: boolean = false) {
+    public canvasPosition;
+    public localPosition;
+    public constructor(canvasPos, button: number, altKey: boolean = false, ctrlKey: boolean = false, shiftKey: boolean = false) {
         super(altKey, ctrlKey, shiftKey);
         this.canvasPosition = canvasPos;
         this.button = button;
-        this.localPosition = vec2.create();
+        this.localPosition;
     }
 }
 
@@ -114,4 +123,8 @@ export enum EInputEventType {
     KEYUP,
     KEYDOWN,
     KEYPRESS,
+}
+
+private _viewportToCanvasCoordinate(evt: MouseEvent):vec2 {
+
 }
