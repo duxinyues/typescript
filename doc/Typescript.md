@@ -106,3 +106,31 @@ const array1: Array<string | number> = [23, 43, "324"]
 1. 使用"ReadonlyArray<T>"内置类型,`const red: ReadonlyArray<number> = [342, 3]`
 2. 使用readonly修饰符，`const color:readonly number[] = [32,546];`。但是readonly修饰符不能和泛型数组类型一起使用
 3. 使用""Readonly<T>工具类型，`const green: Readonly<number[]> = [2, 3]`
+
+## 元组类型
+
+元组：表示由有限元素构成的有序列表
+
+因为元组和数组之间有很多的共同特性，所以Typescript使用数组来表示元组
+
+在Typescript中元组类型是数组类型的子类型，元组是长度固定的数组，元组的每一个元素都有确定的类型。
+
+```JavaScript
+const point: [number, string] = [1, "32"]
+```
+
+## 只读元组
+
+```JavaScript
+// 定义只读元组
+const readonlyArr: readonly [number, number] = [2, 3];
+
+const readonlyT:Readonly<[number,number]> = [32,7]
+```
+
+元组类型的剩余元素，也就是开放的元组类型：
+
+```JavaScript
+const tuple: [number, ...string[]] = [1, "53","23"]
+```
+
