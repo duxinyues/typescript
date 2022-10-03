@@ -2,7 +2,7 @@
  * @Author: duxinyues yongyuan253015@gmail.com
  * @Date: 2022-10-03 16:32:33
  * @LastEditors: duxinyues yongyuan253015@gmail.com
- * @LastEditTime: 2022-10-03 16:32:34
+ * @LastEditTime: 2022-10-03 17:33:03
  * @FilePath: \typescript\interface.ts
  * @Description: 
  * Copyright (c) 2022 by duxinyues email: yongyuan253015@gmail.com, All Rights Reserved.
@@ -27,11 +27,27 @@ interface C {
     f: (x: boolean) => string
 }
 
-interface Index{
-    [prop:string]:number;
-    name:0
+interface Index {
+    [prop: string]: number;
+    name: 0
 }
 
-interface NumberIndex{
-    [prop:number]:string;
+interface NumberIndex {
+    [prop: number]: string;
+}
+
+interface Shape {
+    name: string;
+}
+
+interface Circle extends Shape, A {
+    age: number;
+}
+
+const aa:Circle={
+    age:90,
+    name:"908",
+    f:()=>{
+        return 'string'
+    }
 }
