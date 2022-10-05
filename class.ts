@@ -2,7 +2,7 @@
  * @Author: duxinyues yongyuan253015@gmail.com
  * @Date: 2022-10-03 18:29:09
  * @LastEditors: duxinyues yongyuan253015@gmail.com
- * @LastEditTime: 2022-10-04 17:37:35
+ * @LastEditTime: 2022-10-05 14:00:14
  * @FilePath: \typescript\class.ts
  * @Description: 
  * Copyright (c) 2022 by duxinyues email: yongyuan253015@gmail.com, All Rights Reserved.
@@ -74,4 +74,4 @@ class D{
 }
 const d = new D();
 console.log(D.version);//1.0
-console.log(d.version)
+console.log(d)
