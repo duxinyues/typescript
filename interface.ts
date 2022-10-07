@@ -2,7 +2,7 @@
  * @Author: duxinyues yongyuan253015@gmail.com
  * @Date: 2022-10-03 16:32:33
  * @LastEditors: duxinyues yongyuan253015@gmail.com
- * @LastEditTime: 2022-10-03 17:33:03
+ * @LastEditTime: 2022-10-07 15:31:02
  * @FilePath: \typescript\interface.ts
  * @Description: 
  * Copyright (c) 2022 by duxinyues email: yongyuan253015@gmail.com, All Rights Reserved.
@@ -42,12 +42,4 @@ interface Shape {
 
 interface Circle extends Shape, A {
     age: number;
-}
-
-const aa:Circle={
-    age:90,
-    name:"908",
-    f:()=>{
-        return 'string'
-    }
 }
