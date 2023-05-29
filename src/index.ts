@@ -20,6 +20,4 @@ class Duxin1 extends Duxin {
     }
 }
 
-const money = new Duxin1("duxin", 89)
-
-console.log(money.get(90))
+console.log(null === undefined)
